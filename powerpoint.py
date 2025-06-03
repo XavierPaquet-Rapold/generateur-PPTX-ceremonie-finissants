@@ -20,8 +20,9 @@ def normalize(name):
     return name.strip().lower()
 
 def main():
-  folder_left = "../501 Photos Initiales"
-  folder_right = "../501"
+  group = 551
+  folder_left = f"../{group} Photos Initiales"
+  folder_right = f"../{group}"
 
   left_images = get_sorted_images(folder_left)
   right_images = get_sorted_images(folder_right)
@@ -63,13 +64,14 @@ def main():
     font.size = Pt(60)
     font.color.rgb = RGBColor(0xB9, 0xB4, 0x53)  # Hex #B9B453
 
+    top = Inches(1.31)
+    height = Inches(6.4)
+    text_top = Inches(7.71)
+
     if left_path and right_path:
       # Add left image
-      top = Inches(1.31)
-      height = Inches(6.4)
       slide.shapes.add_picture(left_path, Inches(0.8), top, height=height)
 
-      text_top = Inches(7.71)
       # Add 2020
       left_shape = slide.shapes.add_textbox(Inches(0.8), text_top, Inches(5.12), Inches(0.59))
       text_frame = left_shape.text_frame
@@ -113,7 +115,7 @@ def main():
       font.color.rgb = RGBColor(0xB9, 0xB4, 0x53)  # Hex #B9B453
 
   # Save the presentation
-  prs.save("Presentation.pptx")
+  prs.save(f"{group}.pptx")
 
 if __name__ == "__main__":
   main()
