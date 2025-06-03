@@ -18,8 +18,7 @@ def main():
 
   left_images = get_sorted_images(folder_left)
   right_images = get_sorted_images(folder_right)
-  
-  
+  pairs = zip(left_images, right_images)
   
   prs = Presentation()
   prs.slide_width = Inches(12.01)
